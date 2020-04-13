@@ -4,56 +4,44 @@ using namespace std;
 
 class Queue{
 private:
+    int size;
     int *arr;
-    int head;
-    int tail;
 
 public:
-    int size;
-    Queue(int size);
-    ~Queue();
-    void Push();
-    void Pop();
-    int GetSize();
-    bool IsEmpty();
-    int front();
-    int back();
-};
-    Queue::Queue(size) {
-        arr = new int [size];
-        head = tail = 0;
-    }
+    Queue() {
+        size = 0;
+        arr = new int;
+        }
 
-    Queue::~Queue(){
-        delete arr;
-    }
+    ~Queue() {}
 
-    void Queue::Push(int pushed){
-    tail++;
-    if (tail == size) tail = 0;
-    arr[tail] = pushed;
+    void Push(int pushed){
+    arr[size] = pushed;
+    size++;
+}
+    void Pop(){
+    for(int i = 0; i < size; i++) {
+            arr[i] = arr[i+1];
+    }
+    size--;
 }
 
-    void Queue::Pop(){
-    head++;
-    if (head == size) head = 0;
-}
-
-    int Queue::GetSize(){
+    int GetSize(){
         return size;
     }
 
-    bool Queue::IsEmpty(){
+    bool IsEmpty(){
         return (size <= 0);
     }
 
-    int Queue::front(){
-    return arr[head];
+    int front(){
+    return arr[0];
     }
 
-    int Queue::back(){
-    return arr[tail];
+    int back(){
+    return arr[size-1];
 }
+};
 
 int main() {
     return 0;
