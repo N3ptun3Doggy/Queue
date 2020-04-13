@@ -19,12 +19,12 @@ public:
     int front();
     int back();
 };
-    Queue(size) {
+    Queue::Queue(size) {
         arr = new int [size];
         head = tail = 0;
     }
 
-    ~Queue(){
+    Queue::~Queue(){
         delete arr;
     }
 
